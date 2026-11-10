@@ -1,435 +1,207 @@
-# BluePulse --- Video Demonstration Script
+# **BluePulse — Video Demo Script**
 
-**Event:** PCCOE International Grand Challenge 2026\
-**Theme:** AI for Climate Change\
-**Project:** BluePulse --- AI-Powered Bioacoustic Monitoring for Marine
-Ecosystem Health & Threat Detection\
-**Target duration:** 6 minutes 30 seconds\
-**Maximum duration:** 8 minutes\
-**Speakers:** A (ML, audio processing and Nugen integration); B
-(problem, platform, dashboard and deployment)
+**Event:** PCCOE International Grand Challenge 2026  
+**Theme:** AI for Climate Change  
+**Project:** BluePulse — AI-Powered Bioacoustic Monitoring for Marine Ecosystem Health & Threat Detection  
+**Target Duration:** 6 minutes 30 seconds  
+**Speaker:** One speaker throughout
 
-**Tagline:** *Listening to the Ocean. Protecting What We Cannot See.*
+---
 
-------------------------------------------------------------------------
+## **0:00–0:45 \| Opening — Understanding the Problem**
 
-## Video structure
+**On screen:** BluePulse title slide, followed by visuals of coral reefs, underwater life and blast fishing.
 
-  -----------------------------------------------------------------------
-  Time              Section           Speaker           What to show
-  ----------------- ----------------- ----------------- -----------------
-  0:00--0:45        The problem       B                 Landing page,
-                                                        reef visuals,
-                                                        blast-fishing
-                                                        visual
+**Narration:**
 
-  0:45--1:30        Why it matters    A                 Coral reef
-                                                        visuals and
-                                                        climate
-                                                        connection
+Imagine trying to protect a forest without being able to see it. That is one of the challenges of protecting our oceans.
 
-  1:30--2:30        How BluePulse     A                 Solution and
-                    works                               architecture
-                                                        slides
+Underwater, destructive activities like blast fishing can destroy coral reefs, kill marine life and disturb entire ecosystems.
 
-  2:30--3:30        Live              B                 Replay script,
-                    demonstration                       dashboard, event
-                                                        details and
-                                                        Telegram
+But monitoring these areas is difficult. Cameras struggle in dark and murky water, patrols are expensive, and diving surveys only provide information at specific times and locations.
 
-  3:30--4:30        Human review and  A                 Review workflow
-                    traceability                        and provenance
+So, how can we continuously monitor what is happening underwater, even when we cannot see it?
 
-  4:30--5:15        AI and Nugen      A                 Nugen model page
-                    integration                         and successful
-                                                        provenance record
+That is the problem BluePulse aims to solve.
 
-  5:15--6:00        Impact and        B                 Impact, target
-                    feasibility                         users and
-                                                        deployment slides
+---
 
-  6:00--6:30        Limitations and   Both              Both speakers,
-                    closing                             logo and tagline
-  -----------------------------------------------------------------------
+## **0:45–1:30 \| Why Does This Matter?**
 
-------------------------------------------------------------------------
+**On screen:** Problem, Gaps & Core Need slide. Highlight the four major problems and SDG 13 and SDG 14\.
 
-# Narration
+**Narration:**
 
-## 0:00--0:45 --- The problem: What is happening underwater?
+Coral reefs support marine biodiversity and help protect coastal communities. However, they are already facing pressure from climate-related changes such as rising ocean temperatures and coral bleaching.
 
-**Speaker B**\
-**On screen:** Landing page, reef visuals and blast-fishing
-illustration.
+Destructive activities like blast fishing add further stress by damaging reef structures and affecting marine life.
 
-"Imagine trying to protect a forest when the only way to know what's
-happening is to listen to it. Now imagine that forest is underwater.
+Existing monitoring methods cannot provide continuous coverage across large marine protected areas.
 
-Coral reefs are home to an enormous variety of marine life. They support
-fisheries, protect coastlines and provide habitats for many species.
+BluePulse addresses this gap by using underwater sound as another source of information.
 
-But one activity can destroy these habitats in seconds: blast fishing.
-Explosives are used underwater to kill fish, but they also destroy coral
-and harm marine life that was never the target.
+It supports two important goals: **SDG 13 — Climate Action** and **SDG 14 — Life Below Water**, by helping conservation teams identify potential threats and observe changes in marine ecosystems.
 
-The bigger problem is that these incidents happen underwater, often far
-from people. Visual monitoring is difficult in dark or murky water,
-patrols are expensive, and manual surveys only provide occasional
-snapshots.
+---
 
-So how can we continuously monitor what we cannot easily see?
+## **1:30–2:30 \| Our Solution — How BluePulse Works**
 
-We are Jidnyasa and Sajiree, and this is BluePulse."
+**On screen:** Proposed Solution slide. Show the flow: Hydrophones → Filter → Analyze → Alert. Then display the architecture diagram.
 
-## 0:45--1:30 --- Why does it matter for climate change?
+**Narration:**
 
-**Speaker A**\
-**On screen:** Coral reef visuals, blast-fishing illustration and a
-verified research statistic if available.
+BluePulse is an AI-powered system that listens to underwater environments using devices called **hydrophones**. A hydrophone works like a microphone, but it records sound underwater.
 
-"Why does this matter beyond protecting fish?
+Here is how our solution works.
 
-Coral reefs support biodiversity, fisheries and coastal communities.
-They also act as natural barriers that reduce wave energy along
-coastlines.
+**First, Listen.** Hydrophones capture underwater sounds, including marine-life activity, vessels, machinery and possible explosions.
 
-Climate change is already putting reefs under pressure through rising
-ocean temperatures and coral bleaching. When destructive activities such
-as blast fishing damage these ecosystems further, they add another
-pressure to already vulnerable marine environments.
+**Second, Filter.** Our audio-processing pipeline uses PCEN to reduce background noise, helping the system focus on useful sound patterns.
 
-There is also an opportunity hidden in the sound of the ocean. Healthy
-reefs have characteristic soundscapes produced by fish, snapping shrimp
-and other marine life.
+**Third, Analyze.** We convert audio into Mel-spectrograms and use our acoustic-classification pipeline to identify different event categories, such as vessel activity and possible blast events.
 
-By monitoring these sounds over time, we can look for changes in
-biological activity and build a picture of reef conditions.
+**Finally, Alert.** Detected events can be displayed on our monitoring dashboard and routed to conservation teams for review.
 
-BluePulse is designed to address both sides of the problem: detecting
-immediate acoustic threats and supporting long-term ecosystem-health
-monitoring."
+But BluePulse does more than detect threats. It also aims to establish baseline reef soundscapes and observe changes in biological activity over time.
 
-## 1:30--2:30 --- The solution: How does BluePulse work?
+In simple terms, **one acoustic monitoring system supports both threat detection and long-term reef-health observation.**
 
-**Speaker A**\
-**On screen:** Proposed Solution and Tech Stack & Architecture slides.
-Highlight each stage as it is explained.
+---
 
-"BluePulse is an AI-powered underwater acoustic monitoring system.
+## **2:30–3:30 \| Live Demonstration — From Sound to Detection**
 
-Think of it as a security monitoring system, but instead of cameras, it
-uses underwater microphones called hydrophones.
+**On screen:** Open the BluePulse dashboard. Run the prepared demo replay. Show the event list and select an example event.
 
-Here is the process.
+**Narration:**
 
-**First, we listen.** Hydrophones capture underwater sounds, including
-marine-life activity, vessels, machinery and unusual disturbances.
+Now, let me demonstrate how BluePulse works.
 
-**Next, we filter.** Our audio-processing pipeline uses PCEN to reduce
-background noise, such as waves and rain, and make important sound
-patterns easier to analyse.
+For this demonstration, I am using prepared replay events to show how our platform processes and displays detections. These are sample demo inputs, not live recordings from the ocean.
 
-**Then, we detect.** Mel-spectrograms represent audio as visual
-frequency patterns, which our audio-classification pipeline analyses to
-identify sound categories such as vessels and possible blasts.
+As the replay runs, events start appearing on our dashboard.
 
-**Next, we interpret and alert.** A detection is converted into useful
-event information. Our Nugen-integrated language-model component is
-intended to turn technical detection output into a short briefing that a
-ranger can understand.
+Each event displays relevant information such as its sensor, predicted category and available status or confidence details.
 
-Finally, the platform displays events on a GIS dashboard and can send
-alerts to conservation teams.
+For example, the system can classify an input as a possible blast event, vessel activity or environmental noise.
 
-BluePulse also has a second purpose. By building baseline reef
-soundscapes and tracking biological activity over time, it can support
-long-term monitoring of ecosystem health.
+This allows monitoring teams to identify events that may require attention instead of manually listening through hours of underwater recordings.
 
-In one system, we bring together threat detection and reef soundscape
-diagnostics."
+The dashboard brings these detections together, making it easier to review what was detected and which monitoring sensor reported it.
 
-> **Implementation accuracy note:** Only describe PCEN, Mel-spectrograms
-> and AST as active in the demonstrated pipeline if they are actually
-> running in the submitted build. If AST is not trained or integrated,
-> say: "The architecture includes an AST-based classification pipeline;
-> the current demonstration uses the classifier implemented in this
-> build." Do not imply an unimplemented component is operational.
+---
 
-## 2:30--3:30 --- Live demonstration: From sound event to alert
+## **3:30–4:30 \| Responsible Monitoring — Review and Traceability**
 
-**Speaker B**\
-**On screen:** Terminal, then BluePulse dashboard.
+**On screen:** Select an event. Show its details, sensor information, status and provenance/log record. Show Telegram only if the integration is working.
 
-"Let's see how this works.
+**Narration:**
 
-We are replaying four labelled demonstration events: two simulated blast
-events, one vessel and one environmental-noise event. These are
-demonstration inputs, not live recordings from the ocean."
+An important part of BluePulse is that an AI detection should not automatically be treated as proof of illegal activity.
 
-**Action:** Run the demo replay script.
+Underwater sound can be complex. A strong sound may have multiple possible explanations, and an AI model can make mistakes.
 
-``` bash
-python scripts/demo_replay.py http://127.0.0.1:8000 secret
-```
+That is why uncertain detections should be reviewed by a human before any enforcement action is taken.
 
-**Continue narration:**
+Our system is designed to maintain traceable event records, including the detection details and processing outcome. This helps reviewers understand what the system reported and follow up when necessary.
 
-"Each event is sent to the backend with its own unique ID.
+Where the alert integration is enabled, event information can also be forwarded to the relevant response channel.
 
-Now let's move to the dashboard.
+Our goal is not to replace marine authorities or conservation teams. It is to help them identify and review potential threats sooner.
 
-Here, we can see the incoming events, their classifications, severity
-levels and mapped sensor locations.
+---
 
-Let's open the first possible blast event.
+## **4:30–5:15 \| AI Innovation — What Makes BluePulse Different?**
 
-The event details help a ranger understand what the system detected and
-where it was recorded. The briefing is designed to make the result
-easier to interpret without requiring the ranger to analyse raw audio or
-model output.
+**On screen:** Innovation & Uniqueness slide. Show the acoustic-processing pipeline and relevant model/configuration screen.
 
-Now let's look at the vessel event.
+**Narration:**
 
-A vessel sound is not automatically illegal activity. It may simply be
-normal boat movement. This is why classification, uncertainty and human
-review matter. We do not want every unusual sound to become an
-accusation.
+What makes BluePulse different is that it looks at the underwater soundscape as a whole.
 
-The platform can also send notifications through Telegram, so
-conservation teams can receive important event information without
-continuously watching the dashboard."
+Traditional monitoring often depends on visual observation or periodic surveys. BluePulse uses acoustic sensing, noise-aware processing and AI-based event classification to work even when underwater visibility is poor.
 
-**Action:** Show a Telegram alert if the integration is working. If it
-is not working, do not claim that a live alert was delivered; show the
-implemented interface or explain that it is part of the planned
-workflow.
+It combines two important capabilities: identifying potentially harmful acoustic events and observing longer-term changes in reef soundscapes.
 
-## 3:30--4:30 --- Human oversight and traceability
+Our language-model component is intended to convert technical event information into short, understandable briefings for monitoring teams, making the results easier to interpret.
 
-**Speaker A**\
-**On screen:** Review interface, event details and provenance table.
+The key innovation is the complete workflow: **from underwater sound to an understandable and reviewable conservation signal.**
 
-"Underwater environments are unpredictable. A vessel engine, a natural
-acoustic event or recording interference may sometimes resemble a
-suspicious sound.
+---
 
-That is why BluePulse is designed to assist rangers, not replace their
-judgement.
+## **5:15–6:00 \| Feasibility, Impact and Deployment**
 
-Events can be reviewed by a human operator. Reviewers can confirm or
-reject detections, and verified feedback can help improve the system as
-more labelled data becomes available.
+**On screen:** Challenges, Feasibility & Deployment slide, followed by Impact & Benefits. Highlight existing hydrophones, edge processing and the three deployment phases.
 
-We also maintain event provenance. This means we can trace which AI
-provider processed an event, which model was used, how long the request
-took and whether the inference succeeded.
+**Narration:**
 
-For a conservation system, traceability matters. We need to understand
-not only what the system reported, but also how that result was
-produced.
+BluePulse is designed with practical deployment in mind.
 
-The goal is to give conservation teams useful information while keeping
-final decisions with people."
+It can work with existing hydrophones and autonomous underwater recorders, reducing the need to build an entirely new sensing network.
 
-## 4:30--5:15 --- AI innovation and Nugen integration
+Edge processing can filter and analyze audio locally, so the system does not need to continuously transmit large raw audio files over limited ocean connectivity.
 
-**Speaker A**\
-**On screen:** Nugen model page, verified model configuration, credits
-and successful provenance record.
+Our proposed deployment has three stages.
 
-"Let's look more closely at the language-model component.
+**Phase one:** A pilot in a marine protected area to collect local soundscape data and establish a baseline.
 
-BluePulse integrates Nugen to bring language-model capabilities into the
-event-interpretation workflow.
+**Phase two:** Edge and cloud integration, allowing local processing to work alongside remote event monitoring.
 
-A sound classifier may return a technical label such as 'blast' with a
-probability. But a ranger needs something more useful: a concise
-explanation of what was detected, the uncertainty involved and what
-should be checked next.
+**Phase three:** A command-centre dashboard and alert workflow for conservation teams.
 
-The language-model component is designed to turn detection information
-into that kind of briefing.
+The potential benefits include earlier awareness of destructive activities, more continuous monitoring and useful long-term acoustic information for researchers and marine authorities.
 
-We also record the provider, model identifier, latency and inference
-outcome for each request. This lets us verify which model was used and
-whether the request succeeded.
+A field pilot will be essential to validate detection performance, false alarms, location accuracy and reef-health indicators under real marine conditions.
 
-Here is the model configuration and an example of the integration."
+---
 
-> **Before recording:** Show a successful Nugen inference and a
-> provenance entry with `provider=nugen`, the actual model ID and
-> `outcome=ok`. Do not present a fallback template as a model-generated
-> briefing. Only mention the model architecture, training corpus,
-> alignment process or credits if those details are visible and verified
-> on the Nugen platform.
+## **6:00–6:30 \| Limitations, Future Scope and Closing**
 
-## 5:15--6:00 --- Impact, feasibility and deployment
+**On screen:** Future Scope and Conclusion slides. End with the BluePulse logo and tagline.
 
-**Speaker B**\
-**On screen:** Impact & Benefits, Target Users, Challenges, Feasibility
-and Deployment slides.
+**Narration:**
 
-"BluePulse is designed for practical use by marine authorities,
-marine-protected-area managers, conservation organisations, researchers
-and coastal communities.
+Of course, BluePulse also has challenges to address.
 
-It can work with existing hydrophones and autonomous recording
-equipment, reducing the need to build an entirely new monitoring
-network.
+Ocean noise can affect detection, more real-world recordings are needed to improve reliability, and sensors must withstand harsh marine conditions.
 
-Our architecture combines edge processing, a FastAPI backend and a
-GIS-based dashboard. Edge processing can reduce the amount of raw audio
-that needs to be transmitted, while the dashboard helps teams view
-events and sensor information.
+Our future scope includes improving classification across different marine environments, identifying more marine species and vessel signatures, and developing predictive reef diagnostics.
 
-The intended benefits are earlier identification of possible destructive
-activity, more informed use of patrol resources and continuous acoustic
-records that can support reef-health research.
+BluePulse aims to make underwater monitoring more continuous, accessible and actionable.
 
-Deployment can begin with a pilot in a marine-protected area, followed
-by additional hydrophone nodes, edge-to-cloud event transmission and a
-command-centre dashboard.
+Because protecting the ocean starts with understanding what is happening beneath the surface.
 
-We would measure detection performance, false alarms, alert latency,
-operating costs and changes in acoustic indicators during field pilots.
-These are targets for validation, not results we are claiming today."
+**BluePulse — Listening to the Ocean. Protecting What We Cannot See.**
 
-## 6:00--6:30 --- Limitations and closing
+---
 
-**Both speakers**\
-**On screen:** Both speakers appear on camera, followed by BluePulse
-logo and tagline.
+# **Demo Checklist**
 
-**Speaker A:**
+Before recording:
 
-"BluePulse has limitations. Underwater sounds can be ambiguous, models
-need validation with more real-world recordings, and a single sensor
-cannot precisely locate an incident."
+* Open the dashboard and confirm that it loads.  
+* Confirm that the replay script runs and events appear.  
+* Clearly identify sample or simulated events. Do not present them as live ocean recordings.  
+* Verify the event category and sensor details shown on screen.  
+* Show confidence values only if the current system actually produces them.  
+* Show a Nugen-generated briefing only after confirming that the live request succeeds and the returned text is displayed.  
+* If the system displays a fallback template, describe it as a fallback/template, not as a successful Nugen response.  
+* Show Telegram or another alert channel only if a test alert is successfully delivered.  
+* Show provenance as traceability information, not as proof that every AI component succeeded.  
+* Avoid claiming measured accuracy, instant performance, precise GPS localization or validated reef-health diagnosis without supporting test results.  
+* Keep the demonstration focused. Avoid spending too much time on code or terminal output.
 
-**Speaker B:**
+# **Suggested Slide and Video Timeline**
 
-"Our next steps are field testing, expanding verified acoustic datasets,
-improving multi-sensor localisation and making alerts accessible in
-regional languages."
+| Video Time | Presentation Section |
+| ----- | ----- |
+| 0:00–0:45 | Title — BluePulse |
+| 0:45–1:30 | Problem, Gaps & Core Need; SDG Alignment |
+| 1:30–2:30 | Proposed Solution; Tech Stack & Architecture |
+| 2:30–3:30 | Live Dashboard Demonstration |
+| 3:30–4:30 | Event Review, Alert Workflow & Traceability |
+| 4:30–5:15 | Innovation & Uniqueness |
+| 5:15–6:00 | Challenges, Feasibility & Deployment; Impact & Benefits |
+| 6:00–6:30 | Future Scope; Conclusion |
 
-**Both:**
+**Recording note:** The presentation describes capabilities such as GPS-tagged alerts, real-time dispatch, AST classification and continuous reef-health diagnostics. Present these as implemented features only where they are demonstrably working. Otherwise, describe them as proposed capabilities, prototype functionality or future deployment goals, as appropriate.
 
-"Because protecting marine ecosystems starts with understanding what is
-happening beneath the surface.
-
-BluePulse --- Listening to the Ocean. Protecting What We Cannot See.
-
-Thank you."
-
-------------------------------------------------------------------------
-
-# What to show for each judging criterion
-
-  -----------------------------------------------------------------------
-  Judging criterion                   Evidence to show
-  ----------------------------------- -----------------------------------
-  **1. Problem relevance**            Blast-fishing problem, limitations
-                                      of visual monitoring and patrols,
-                                      climate and biodiversity connection
-
-  **2. AI innovation**                Hydrophone-to-AI pipeline, noise
-                                      processing, audio classification,
-                                      Nugen briefing workflow and human
-                                      review
-
-  **3. Implementation and clarity**   Architecture, live event replay,
-                                      dashboard, event details, review
-                                      flow and provenance
-
-  **4. Impact and feasibility**       Target users, existing-hydrophone
-                                      compatibility, edge processing,
-                                      deployment phases and measurable
-                                      pilot outcomes
-
-  **5. Evidence and presentation**    Working demo, successful Nugen
-                                      inference evidence, provenance,
-                                      clear narration and honest
-                                      limitations
-  -----------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-# Pre-recording checklist
-
-## Backend and AI
-
--   [ ] Backend is running and `/healthz` responds.
--   [ ] `/v1/system/info` reports `llm_provider=nugen`.
--   [ ] Nugen API key and model ID are loaded from the shared `.env`.
--   [ ] Generate a fresh event and verify that provenance reports
-    `provider=nugen`.
--   [ ] Verify at least one successful inference with `outcome=ok` and
-    the actual model ID.
--   [ ] Ensure the briefing shown in the dashboard is genuinely
-    generated by Nugen, not a fallback template.
--   [ ] Keep API keys and other secrets hidden from the recording.
-
-## Live demonstration
-
--   [ ] Run the demo replay once before recording.
--   [ ] Confirm the expected sensor IDs are accepted.
--   [ ] Check that the dashboard displays the new events.
--   [ ] Confirm event details and review controls work.
--   [ ] Confirm Telegram notifications work before promising to show
-    one.
--   [ ] Prepare a clean backup recording in case the live demo fails.
--   [ ] Clearly identify replayed or synthetic events as demonstration
-    data.
-
-## Presentation and recording
-
--   [ ] Both speakers appear on camera at least once.
--   [ ] Record at 1080p with clear audio.
--   [ ] Close notifications and unrelated browser tabs.
--   [ ] Keep the architecture diagram readable.
--   [ ] Show the relevant PPT slides at the planned timestamps.
--   [ ] Rehearse with a timer and keep the final video below 7:30.
--   [ ] Upload as an unlisted YouTube video or shareable Drive link.
-
-------------------------------------------------------------------------
-
-# Backup demo shot list
-
-If the live demo fails, use a clean screen recording with voice-over.
-
-1.  Show the backend starting and the system-info response.
-2.  Show the demo replay command and clearly label the events as
-    simulated.
-3.  Show the resulting event cards on the dashboard.
-4.  Open a possible blast event and show its details.
-5.  Open a vessel event and explain why human review matters.
-6.  Show the Telegram alert only if a genuine notification was received.
-7.  Show a successful Nugen provenance entry. Do not use a fallback
-    event as evidence of successful Nugen inference.
-8.  End with the BluePulse dashboard and project tagline.
-
-------------------------------------------------------------------------
-
-# Claims and evidence to verify before recording
-
--   **Research statistic:** If using the "one incident every 62 minutes"
-    statistic, show the original paper and verify the exact wording,
-    study location, recording duration and incident count.
--   **Classifier status:** Clearly distinguish a trained and integrated
-    classifier from a prototype or stand-in.
--   **Nugen integration:** Show successful inference, not just provider
-    configuration or an HTTP 200 response.
--   **Confidence:** Do not describe an LLM-generated confidence value as
-    calibrated model confidence unless it has been validated.
--   **Location:** A single hydrophone provides a sensor-associated
-    location, not precise incident localisation.
--   **Continuous monitoring:** Distinguish the intended 24/7 hydrophone
-    monitoring design from what the current demo actually demonstrates.
--   **Performance:** Do not quote accuracy, precision, false-positive
-    rates or real-time latency without measured results.
--   **Impact:** Describe environmental benefits as intended outcomes
-    until validated through field deployment.
-
-**Final message:** BluePulse listens to underwater soundscapes,
-identifies potential threats, turns detections into understandable
-information and supports long-term marine ecosystem monitoring.
