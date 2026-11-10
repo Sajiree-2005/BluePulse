@@ -1,0 +1,23 @@
+BluePulse frequently asked questions
+
+What does BluePulse do? BluePulse listens to underwater sound from hydrophones, recognises events such as blast fishing and vessel noise, alerts rangers with a location and a plain-language briefing, and tracks the soundscape of a reef over time. It is designed to attach to recorders that a team already owns, so no new hardware is required.
+
+How does it recognise a blast? A small program on the edge device first cleans the background noise and looks for sudden sharp events. Candidate sounds are sent to the cloud, where an audio classifier labels them. A language model aligned on marine acoustics documents then writes a briefing and reports how confident it is. A human reviews anything that is not clearly a blast.
+
+Can it tell exactly where a blast happened? Not with one sensor. One hydrophone knows only its own position, so the alert gives the sensor location and an uncertainty radius. When three or more sensors with synchronised clocks hear the same blast, the system can estimate a position from the differences in arrival time and gives an uncertainty for that estimate.
+
+Why does it sometimes say it is not sure? Because some sounds look like blasts. A boat engine misfire, thunder or construction can produce a sharp bang. When the evidence is mixed the system lowers its confidence and asks a person to review the audio. This is intended behaviour and protects fishing communities from false accusations.
+
+What happens if the cloud service is asleep or the network is down? The edge agent keeps events in a local queue and retries. Every event carries a unique identifier so that a retry never creates a duplicate. An alert may arrive late after a cold start, but it is not lost.
+
+Does the language model decide whether something is a blast? No. The audio classifier decides the class. The language model adds a briefing, a severity explanation and a confidence score. It can never remove or hide an alert. If it takes too long, a short template alert is sent first and the briefing follows.
+
+What does the confidence score mean? It is a number from zero to one hundred that shows how well the generated briefing stays inside the domain the model was aligned on. High values mean the content matches what it learned. Low values mean the model may be drifting, so the event is routed to a person.
+
+Is the reef health score a diagnosis? No. It is an indicator relative to each site's own baseline. A change should be checked against weather, boats and any change to the recorder before conclusions are drawn.
+
+What data does BluePulse keep? It keeps short compressed audio clips for events, summary indices for routine periods, sensor positions, reviewer decisions and a log of every language model call. Old clips are deleted by a retention rule. It stores no personal data except staff accounts and alert contacts.
+
+Who should act on an alert? A trained duty officer should listen to the clip, read the briefing and decide. Patrols should focus on observation and evidence and follow local law and agency policy. An alert is never proof that any person or boat committed an offence.
+
+Where do the training data come from? From public and published recordings, combined with synthetic blast examples created for augmentation. Results on real recordings are reported separately from results that include synthetic data, and the limits of the training data are stated in the model card.

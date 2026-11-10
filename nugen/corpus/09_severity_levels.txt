@@ -1,0 +1,19 @@
+Severity levels for BluePulse events
+
+Every event receives a severity level that tells people how quickly to act. Severity is calculated from the sound class, the classifier probability, whether other sensors agree, how often similar events have occurred, and the time of day. It is deliberately simple and transparent so that rangers can understand why an alert was marked as it was. This document describes the five levels used by the system and the rules for moving between them.
+
+Critical means a likely blast near a monitored area that deserves immediate attention. Typical conditions are a blast class with high probability, heard clearly on at least one sensor, and either confirmed by several sensors or occurring in a protected zone. Critical alerts are sent at once to all on-duty contacts and displayed prominently on the map. A critical event should be acknowledged by a person within a few minutes.
+
+High means a probable blast with some doubt or a lower priority location. For example, the classifier probability may be moderate, the event may have been heard on only one distant sensor, or a look-alike such as an engine misfire is plausible. High events are sent to duty officers and shown in the review queue at the top. A human should listen to the clip before dispatching a patrol.
+
+Medium covers events that are unusual but not clearly threatening. Examples include a vessel in an area where vessels are restricted, an unexplained loud noise that the classifier could not assign, or a sudden drop in biological sound compared with the site baseline. Medium events appear in the dashboard and are included in the daily summary but do not wake anyone up.
+
+Low is used for routine vessel traffic and expected sounds that were still worth recording. Low events help build context, for instance showing that a boat passed shortly before a blast, and they feed activity statistics. They are visible on request and are not sent as alerts.
+
+Info is for biological and environmental sounds such as fish choruses, snapping shrimp crackle, rain and waves. They are used for the reef health indices and are not treated as incidents.
+
+Several factors can raise severity. A blast detected on three or more sensors is more reliable than a blast on one sensor and moves up one level. Repetition raises concern: several blast detections within a short period suggest an active fishing episode. Time of day matters when local patterns are known, for instance when blasts commonly occur in the early morning. Proximity to a protected zone, as defined by the organisation, increases severity.
+
+Several factors lower severity or add caution. Low classifier probability, signs of clipping, a nearby running engine, a sensor with a known clock problem, or recent maintenance at the sensor may reduce confidence. In such cases the event is labelled needs review rather than being dismissed.
+
+The language model may explain the severity in a sentence, but it does not set the level. The rule-based engine sets the level, and the model can only add information or request review. This keeps the behaviour predictable and testable. Severity thresholds are configuration values that the operating organisation can adjust after reviewing evaluation results, and every change should be written to the decision log with the date and the reason.

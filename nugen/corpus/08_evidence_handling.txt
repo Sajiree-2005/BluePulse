@@ -1,0 +1,17 @@
+Evidence handling for acoustic detections
+
+An alert is only useful if it can be checked later. Reviewers, supervisors, researchers and sometimes legal officers may need to understand exactly what the system heard, why it reached its conclusion and whether the record was altered. This document describes what BluePulse stores for each event and how that record should be protected. It is a design guide and does not replace legal advice about admissibility, which depends on local law and must be confirmed with the responsible authorities.
+
+The core record for an event contains the audio clip, the sensor identity, the start time in universal time, the sensor position, the classifier output, the model version, any language model briefing, and the review decisions. The audio clip is a short compressed segment, typically about three seconds, cut around the detected sound. Keeping a short clip rather than all the audio limits storage and privacy risks while preserving the evidence of the event itself. The compressed format is lossless so that the stored sound is identical to what the classifier received.
+
+Integrity is protected with a cryptographic hash. When an event is received, the system computes a SHA-256 hash of the clip and stores it with the record. If the clip is ever exported, the hash can be recomputed and compared to prove that the file is unchanged. The model file is also hashed, and its hash is stored in the model card, so the exact classifier used for a decision can be identified.
+
+Time is critical evidence. Each sensor reports the time at the start of the clip. If the sensor uses GPS time the record should say so. If the clock is not disciplined, the record should flag the possible drift, because an unsynchronised clock makes multi-sensor position estimates unreliable. The server also records the time of receipt, so a delay caused by network loss or cloud sleep is visible and cannot be mistaken for a late event.
+
+Every change is logged. When a reviewer confirms an event, marks it a false positive or adds a note, the action, the user and the time are written to an audit log that cannot be edited through the normal interface. Deleting an event should be restricted to administrators and should be recorded as well. Retention rules should be defined in advance: for example, clips for unconfirmed events may be removed after a fixed number of days, whereas clips for confirmed events are kept longer or exported to a secure archive.
+
+Access control matters. Exact sensor coordinates in protected areas may be sensitive, as they reveal where monitoring is and is not present. Only authorised staff should see them. Alert contacts such as phone numbers and chat identifiers are personal data and should be stored securely and removed when staff leave.
+
+Language model output is advice, not evidence. The system stores each call to the aligned model with the model identifier, the time, the response time, the token counts and the confidence score, so that anyone can see which model produced a briefing. The briefing text should be treated as a summary prepared by software and the original audio and classifier output should always be consulted. If a briefing is later found to be wrong, the record shows that the underlying measurements were preserved and it can be corrected without losing the original information.
+
+Finally, exports should be reproducible. An evidence export should contain the clip, its hash, the record, the model identifiers and a plain-language explanation of the limits of acoustic evidence.

@@ -1,0 +1,17 @@
+Ranger response procedure for acoustic alerts
+
+This document describes how marine rangers and coastal enforcement staff should respond when BluePulse sends an alert. It is a model procedure for training and design purposes. Every organisation must adapt it to its own legal powers, safety rules and local instructions, and any statement about legal authority must be checked with the responsible agency.
+
+Safety comes first. Suspected blast fishing involves people handling explosives, and explosives can injure or kill the people who use them and anyone nearby. Rangers must not approach a suspected blasting site alone, must not touch unexploded charges, and must keep clear of the water if more charges may be thrown. Patrol boats should approach from a safe angle, keep radio contact with the base, and follow the standing rules for boarding and inspection. If a charge may have failed to explode, the area should be reported to the appropriate authorities rather than handled.
+
+When an alert arrives, the first task is to read the briefing and check three things: the severity, the confidence and the time. A critical alert with high confidence should be acknowledged within a few minutes and a patrol assigned if one is available. An alert with moderate confidence should be reviewed by a duty officer who listens to the audio clip and looks at the spectrogram before deciding. An alert labelled uncertain should not trigger a patrol on its own but should be logged and compared with other events at the same sensor.
+
+The duty officer records a decision in the system: confirm, false positive, or needs more information. Confirming an event means the officer believes, after listening and checking context, that it was a blast. Marking a false positive requires a short reason such as engine misfire or thunder. These decisions are valuable because they become labelled data for improving the classifier, so they should be entered promptly and honestly.
+
+Because sound gives only an area, the patrol should search the area indicated, with attention to boats seen near the time of the event, floating dead fish, and fresh surface disturbance. The search should be recorded with times and positions. If several sensors heard the event and the system provides a position estimate, the officer should treat the estimate as a starting point and remember the stated uncertainty.
+
+Rangers should communicate with fishing communities respectfully. Many fishers obey the law, and false suspicion damages trust. Alerts must never be shared publicly with names or accusations. Any enforcement action must rely on evidence gathered by rangers in the field, such as seized materials or direct observation, with the acoustic record serving as supporting information.
+
+After the response, a short report should be added to the event: what was found, what actions were taken, and whether the sensor data helped. Repeated events at the same place and time of day should be reported to supervisors so that patrol schedules can be adjusted. Patterns across weeks, such as a drop on days of community prayer or a peak in the early morning, can help plan patrols.
+
+Finally, rangers should report system problems. If a sensor goes silent, the clock looks wrong, or alerts come in bursts that look suspicious, the technical team should be told. Faulty or tampered sensors reduce coverage and may create false confidence that an area is quiet.

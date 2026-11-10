@@ -1,0 +1,19 @@
+BluePulse glossary of marine acoustic and system terms
+
+This glossary explains the terms used in BluePulse documents and briefings in plain language. Use the same words when writing alerts so that rangers, reviewers and researchers understand each other.
+
+A hydrophone is an underwater microphone that records sound in water. Passive acoustic monitoring means listening without sending out any sound, usually for long periods. A recorder is the device that stores or streams what the hydrophone hears. A sensor in BluePulse is a recorder with an identity, a fixed position and an API key.
+
+A spectrogram is a picture of sound with time across, pitch up the side and brightness showing loudness. A mel spectrogram uses a pitch scale similar to human hearing. PCEN, short for per-channel energy normalisation, is a filter that adapts to steady background noise so that sudden events stand out. An onset is the moment a sound begins, and a fast onset of a few milliseconds is typical of an explosion.
+
+Broadband means energy spread over many frequencies. A harmonic is a tone at a multiple of a base frequency, and a stack of harmonics is typical of engines. Blade rate is the repeating throb made by a propeller. Cavitation is the formation and collapse of tiny bubbles around a fast propeller, which adds a bright hiss. A bubble pulse is the repeated oscillation of the gas bubble after an explosion, seen as a series of weak pulses after the first one.
+
+Biophony is sound made by living animals, geophony is sound from weather and water, and anthrophony is sound from human activity. A soundscape is the combination of all three at a place. A chorus is a period when many animals call together, often at dusk and dawn. Snapping shrimp are small crustaceans that make sharp clicks, and together they create a continuous crackle on many tropical reefs.
+
+An acoustic index is one number that summarises a soundscape. The acoustic complexity index measures variation of level over short times. Spectral entropy measures how evenly energy is spread across frequencies. A baseline is the typical value of an index for a site and hour. A deviation score shows how far a new value is from the baseline. The soundscape activity score is a zero to one hundred summary that is relative to each site.
+
+AST stands for Audio Spectrogram Transformer, the model that classifies sound clips from spectrogram images. A classifier is a model that assigns a label to an input. A probability is the model's share of belief in each label. A threshold is the minimum probability needed to accept a label, and an event below every threshold is marked uncertain.
+
+A language model is a program that writes text. An aligned model is a language model further trained on documents from one domain. The confidence score is a number from zero to one hundred reported with each generation of an aligned model. A briefing is the short text that tells a ranger what was heard, how sure the system is and what to do next. A template alert is a short fixed-format message sent when the briefing is late.
+
+Time difference of arrival, or TDOA, is a method for locating a sound from the moments it reaches different sensors. An uncertainty radius is the distance within which the true source is expected to lie. An edge agent is the small program that runs next to the recorder. An idempotency key is a unique identifier that makes repeated uploads safe. A false positive is a detection of something that was not there, and a false negative is a missed event. Provenance means the record of which model produced which output and when.

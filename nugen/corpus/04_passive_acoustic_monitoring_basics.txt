@@ -1,0 +1,15 @@
+Passive acoustic monitoring basics for coastal waters
+
+Passive acoustic monitoring, often shortened to PAM, means listening to the environment without sending out any sound of its own. In the sea it uses hydrophones, which are underwater microphones that convert pressure changes into electrical signals. Because sound travels far in water and many marine animals and human activities are noisy, PAM can watch large areas continuously, at night, in rough weather and without disturbing wildlife.
+
+A basic PAM system has four parts: a hydrophone, a recorder that digitises and stores the signal, a power source, and housing that protects the electronics from pressure and corrosion. Low-cost recorders designed for ecologists have made the approach affordable for conservation groups. Some units store audio on memory cards and are collected periodically; others send data over a network. BluePulse is designed to attach to either kind: it reads files written by an existing recorder or a live audio stream.
+
+Two settings define what a recorder can hear. The sample rate sets the highest frequency that can be captured, which is half the sample rate. A recorder sampling at sixteen kilohertz captures up to eight kilohertz, which is enough for blasts, boats and most fish, but not for the high-frequency crackle of snapping shrimp. A recorder sampling at forty-eight kilohertz or more can capture shrimp sound. The sensitivity and gain determine how loud a sound must be to register and when the signal clips. Clipping, where a very loud sound exceeds the recorder range, flattens the peak and can confuse detection, so it should be logged.
+
+Duty cycling is common. To save battery and storage a recorder may listen for a few minutes and rest for a few minutes. Because a blast lasts only a moment, duty cycles create gaps in which events are missed, and this must be considered when estimating how often blasts occur. Reported rates are often minimums for this reason.
+
+Time accuracy is vital if more than one sensor will be used to estimate a source position. Every recorder has a clock that drifts. For triangulation the clocks must agree within a few milliseconds, which normally requires GPS time or regular synchronisation. Without this, a single sensor can still detect and classify events, but it cannot help locate them precisely.
+
+Sound travels through seawater at about fifteen hundred metres per second, a little more in warm or salty water. A blast heard on two sensors will therefore arrive at different times, and the difference tells how much farther the source is from one sensor than the other. With enough sensors in a good geometry, the position can be estimated. With one sensor the answer is only an area around it.
+
+Raw audio is large, so analysis starts by turning sound into a spectrogram, a picture showing frequency over time. Many detection methods remove steady background noise first so that sudden events stand out. After that, a classifier labels each candidate event. Every stage can make errors, so a monitoring system should record the recording conditions, the model version and the confidence for every detection.

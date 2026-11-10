@@ -1,0 +1,15 @@
+Reef health indices: how BluePulse measures a soundscape
+
+BluePulse tracks the sound of a reef over weeks and months. It does this with a few simple numbers called acoustic indices, which are computed on the edge device every minute and sent to the cloud as a tiny message. The indices are not a diagnosis of reef health. They are indicators that show when a site sounds different from its own normal pattern.
+
+The acoustic complexity index, often shortened to ACI, measures how much the sound level changes from moment to moment within each frequency band. A reef with many animals making varied sounds has high complexity. A steady engine or a constant hiss has low complexity because the level barely changes. ACI is useful for separating biological activity from steady noise, but it can be raised by rain or by a nearby boat, so it should always be read with the noise level.
+
+Spectral entropy measures how evenly sound energy is spread across frequencies. A pure tone has low entropy and white noise has high entropy. Snapping shrimp crackle spreads energy widely and gives high entropy. A vessel concentrates energy in a few harmonic lines and lowers it. Tracking entropy over a day shows when the reef is busy and when a vessel dominates.
+
+Band energy ratios compare the energy in a low band, roughly one hundred to one thousand hertz where many fish calls sit, with the energy in a high band, roughly two to twenty kilohertz where snapping shrimp dominate. The recorder must sample fast enough to capture the high band, so the sample rate of each sensor is recorded with its data. A falling high band can mean fewer shrimp. A weak low band at dusk can mean a missing fish chorus.
+
+Every index is compared with a baseline built from that same sensor. For each hour of the day the system keeps a robust typical value, the median, and a robust spread, the median absolute deviation. A new value becomes a deviation score, which says how many typical spreads it lies from the median. Robust measures are used so that one loud storm or boat does not distort the baseline.
+
+The soundscape activity score runs from zero to one hundred. A value near one hundred means the site sounds like its own normal. The score falls when biological indices fall below baseline, and it falls more slowly when they rise. The formula is deliberately simple and published so that anyone can check it. The score is relative to the site, so a score of eighty at one reef cannot be compared with eighty at another.
+
+Interpreting a drop requires care. First check whether the recorder, its gain or its position changed. Then check weather, tide, moon phase and boat traffic. A single low day is common. A deviation that lasts for many days, or that follows a blast event near the sensor, deserves attention. A rising score after protection measures can be an encouraging sign of recovery, but only a long record supports that conclusion. Reports should always state the size of the change, how long it lasted and the limits of the evidence.

@@ -1,0 +1,19 @@
+BluePulse event types and what each one means
+
+BluePulse turns underwater sound into a small set of event types. Every event has a class, a probability for each class, a confidence score from the language model, a sensor identity, a time in universal time, and a location. This document explains the classes so that rangers, reviewers and the briefing model use the same words.
+
+The blast class means a sharp, isolated, broadband sound with a very fast onset and a decaying tail, consistent with an underwater explosion. It is the most urgent class. A blast detection is never a verdict. It is a lead that says a sound matching the usual blast pattern was heard. Look-alikes include engine backfires, thunder and construction impacts, which is why moderate confidence blasts are sent for human review.
+
+The vessel class means a sound source with a smooth rise and fall in level, steady engine tones, harmonic lines or a repeating propeller throb. Most vessels are legal fishing or transport boats. A vessel event becomes more interesting if it appears inside a closed zone, at an unusual hour, or close in time to a blast. The briefing for a vessel should say the likely type and whether it seems to be moving.
+
+The biology class means sound produced by animals, mainly snapping shrimp crackle, fish calls and chorus, and sometimes marine mammals. Biology events are good news. They feed the reef health trends and are normally logged without an alert. A sudden loss of biological sound at a site is a different matter and is reported through the reef health module as a deviation from the site baseline.
+
+The environmental noise class means weather and water movement such as rain, wind, waves and surf. These sounds are broadband and can be loud. They are labelled so that they are not confused with a blast, and they are kept as context because heavy weather lowers the ability of the sensor to hear distant events.
+
+The ambient class means ordinary background sound with no notable event. Most recordings are ambient. The system stores only summary indices for ambient periods, not audio, to save space.
+
+The uncertain flag is used when no class reaches its threshold. An uncertain event is never guessed. It is shown to a reviewer with the top two classes and their probabilities, so that a person can decide. Reviewers can confirm the class, change it, or mark the event as a false positive, and each decision is saved as a labelled example for future training.
+
+Each event also has a severity: critical, high, medium, low or info. Severity comes from the class, the confidence, the number of sensors that heard the event, the location and recent history. The briefing model explains the severity in one line. Confidence routes the alert: high confidence goes out at once with the full briefing, moderate confidence goes out flagged for review, and low confidence or a missing briefing triggers a short template alert so that nothing is delayed.
+
+A location is either the position of the sensor with an uncertainty radius, or, when three or more synchronised sensors heard the same event, an estimate from the time differences between them with its own uncertainty. The system always reports which of the two it used.
