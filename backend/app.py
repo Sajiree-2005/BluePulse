@@ -1,7 +1,11 @@
 """BluePulse standalone backend (SQLite, runs anywhere). Person B can later swap SQLite for Neon Postgres + PostGIS (see docs/PERSON_B_PROMPT.md).
 Run: pip install fastapi uvicorn numpy scipy ; set SENSOR_KEYS=s1:secret ; uvicorn app:app --port 8000"""
 import asyncio, base64, io, json, os, sqlite3, sys, time, urllib.request
+from dotenv import load_dotenv
 from pathlib import Path
+# Load shared configuration from BluePulse root
+ROOT = Path(__file__).resolve().parents[1]
+load_dotenv(ROOT / ".env", override=True)
 import alerts
 from fastapi import FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -9,7 +13,7 @@ from fastapi.responses import StreamingResponse
 from scipy.io import wavfile
 import numpy as np
 sys.path.insert(0, str(Path(__file__).parents[1] / "core"))
-from bluepulse_core import detect_transients, spectral_entropy
+from core import detect_transients, spectral_entropy
 
 DB = os.environ.get("DB_PATH", "bluepulse.db"); PROVIDER = os.environ.get("LLM_PROVIDER", "fake"); HOLD_S = float(os.environ.get("ALERT_HOLD_S", "8"))
 KEYS = dict(p.split(":", 1) for p in os.environ.get("SENSOR_KEYS", "s1:secret,malvan-north:secret,sindhudurg-reef:secret,tarkarli-shelf:secret").split(",")); db = sqlite3.connect(DB, check_same_thread=False)
@@ -66,7 +70,24 @@ async def ingest(e: dict, x_sensor_key: str = Header(None)):
     if KEYS.get(e.get("sensor_id")) != x_sensor_key: raise HTTPException(401, "bad sensor key")
     label, probs = classify(e); t0 = time.time(); outcome = "ok"
     try: text, conf, model = await asyncio.wait_for(asyncio.to_thread(llm_briefing, label, probs, e["sensor_id"]), HOLD_S)
-    except Exception: text, conf, model, outcome = template(label, max(probs.values()), e["sensor_id"]), None, None, "fallback"   # LLM adds, never blocks the alert
+    except Exception as ex:
+        print(f"[NUGEN ERROR] {type(ex).__name__}: {ex}", flush=True)
+
+        if hasattr(ex, "read"):
+            try:
+                print(
+                    f"[NUGEN RESPONSE] {ex.read().decode(errors='replace')}",
+                    flush=True
+                )
+            except Exception:
+                pass
+
+        text, conf, model, outcome = (
+            template(label, max(probs.values()), e["sensor_id"]),
+            None,
+            None,
+            "fallback"
+        )
     pos = e.get("sensor_position", {}); sev = severity(label, conf)
     db.execute("insert or ignore into events(id,sensor,ts,label,probs,severity,briefing,conf,provider,lat,lon) values(?,?,?,?,?,?,?,?,?,?,?)",
                (e["event_id"], e["sensor_id"], e["started_at"], label, json.dumps(probs), sev, text, conf, PROVIDER, pos.get("lat"), pos.get("lon")))
